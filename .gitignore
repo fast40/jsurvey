@@ -7,3 +7,4 @@ files
 video_batches
 *.zip
 examples
+*.csv

@@ -3,7 +3,7 @@ from create_datasets import DATABASE
 import pymongo
 
 app = Flask(__name__)
-client = pymongo.MongoClient('mongodb://localhost:27017/qualtricks')
+client = pymongo.MongoClient('mongodb://mongo:27017/qualtricks')
 
 
 @app.route('/')
