@@ -1,0 +1,28 @@
+upload zip file containing two csv files.
+
+files are named.
+
+
+
+database requests.
+
+
+Should there be a separate csv thing? or should I have a database type option? For csv data / file data? That probably makes the most sense.
+
+
+
+Ok here's the issue. There will be times when I want to save the csv file as a file, and there will be times when I want to save the values in the csv file as documents.
+
+Can there be csv data and files in the same
+- dataset? no
+- project? yes
+
+
+
+FILE DATASET
+- add files from zip archive
+
+TABLE DATASET
+- load new columns from csv (must have same number of rows as existing table)
+- load new rows from csv (must have same columns as existing table)
+- should usually just upload a single big csv file
