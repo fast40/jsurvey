@@ -29,7 +29,7 @@ def get_responses():
     except Exception:
         return jsonify({})
 
-    responses = list(client[DATABASE]['responses'].aggregate([{'$sample': {'size': 4}}]))
+    responses = list(client[DATABASE]['responses'].aggregate([{'$sample': {'size': 2}}]))
 
     response_set = {
         'response_numbers': ' '.join(response['response_number'] for response in responses),
