@@ -12,9 +12,11 @@ xhttp.onreadystatechange = function() {
     for (var i = 0; i < server_response['initial_answers'].length; i++) {
       const initial_answer_element = document.getElementById("initial_answer_" + (i + 1));
       const meta_error_element = document.getElementById("meta_error_" + (i + 1));
+      const rank_element = document.getElementById("rank_" + (i + 1));
 
       const initial_answer = server_response["initial_answers"][i];
       const meta_error = server_response["meta_errors"][i];
+      const rank = server_response["ranks"][i];
       
       if (initial_answer_element != null) {
         Qualtrics.SurveyEngine.setEmbeddedData(initial_answer_field + (i + 1), initial_answer);
@@ -24,6 +26,10 @@ xhttp.onreadystatechange = function() {
       if (meta_error_element != null) {
         Qualtrics.SurveyEngine.setEmbeddedData(meta_error_field + (i + 1), meta_error);
         meta_error_element.innerHTML = meta_error;
+      }
+
+      if (rank_element != null) {
+        rank_element.innerHTML = rank + 1;
       }
     }
   }
