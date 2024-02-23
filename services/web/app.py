@@ -37,6 +37,8 @@ def get_responses():
         'meta_errors': [response['meta_errors'][question_number - 1] for response in responses],
     }
 
+    response_set['ranks'] = sorted(range(len(response_set['meta_errors'])), key=lambda i: abs(response_set['meta_errors'][i]))
+
     server_response = jsonify(response_set)
     server_response.headers.add('Access-Control-Allow-Origin', '*')
 
