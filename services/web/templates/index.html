@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
     <head>
         <title>Test</title>
@@ -15,4 +15,51 @@
         {% endfor %}
         </ul>
     </body>
+</html> -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Qualtrics Setup</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+      code {
+        white-space: pre-wrap;
+      }
+      /* button {
+        display: block;
+        margin-bottom: 0.5rem;
+        border: none;
+        background-color: blue;
+        color: white;
+        padding: 0.25rem;
+        cursor: pointer;
+        border-radius: 0.25rem;
+        font-weight: bold;
+      } */
+    </style>
+  </head>
+  <body>
+    <h1>Qualtrics Setup</h1>
+    <p>Each of the following lines will be replaced with its corresponding data from the dataset when pasted into the "HTML view" of the question text:</p>
+    <!-- <button id="html-button">Click to copy HTML code</button> -->
+    <code id="html-code">{{ html_code }}</code>
+    <p>The following javascript code needs to be pasted into the javascript onloaded section:</p>
+    <!-- <button id="javascript-button">Click to copy Javascript code</button> -->
+    <code id="javascript-code">{{ javascript_code }}</code>
+    <!-- <script>
+      const html_code = document.getElementById("html-code").innerHTML;
+      const javascript_code = document.getElementById("javascript-code").innerHTML;
+
+      const html_button = document.getElementById("html-button");
+      const javascript_button = document.getElementById("javascript-button");
+
+      html_button.onclick = function() {
+        navigator.clipboard.writeText(html_code);
+      }
+
+      javascript_button.onclick = function() {
+        navigator.clipboard.writeText(javascript_code);
+      }
+    </script> -->
+  </body>
 </html>
