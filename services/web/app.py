@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template, jsonify
-from create_datasets import DATABASE
+from create_datasets import DATABASE, create_datasets
 import pymongo
 
 app = Flask(__name__)
@@ -35,14 +35,22 @@ def get_responses():
         'response_numbers': ' '.join(response['response_number'] for response in responses),
         'initial_answers': [response['initial_answers'][question_number - 1] for response in responses],
         'meta_errors': [response['meta_errors'][question_number - 1] for response in responses],
+        'meta_error_ranks': [response['meta_error_ranks'][question_number - 1] for response in responses],
     }
 
-    response_set['ranks'] = sorted(range(len(response_set['meta_errors'])), key=lambda i: abs(response_set['meta_errors'][i]))
+    response_set['ranks'] = sorted(range(len(response_set['meta_error_ranks'])), key=lambda i: abs(response_set['meta_errors'][i]))
 
     server_response = jsonify(response_set)
     server_response.headers.add('Access-Control-Allow-Origin', '*')
 
     return server_response
+
+
+@app.route('/populate')
+def populate():
+    create_datasets()
+
+    return 'populated. do not go here again.'
 
 
 if __name__ == '__main__':
